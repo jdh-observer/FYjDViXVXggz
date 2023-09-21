@@ -1,12 +1,12 @@
 # Abstract
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/C2DH/template_repo_JDH_R/HEAD?filepath=author_guideline_template.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/crystaljhall/GaLiLeO_JDH/HEAD?filepath=The-Text-Analysis-Prototype-for-Galileo's-Library-and-Letters-Online-(GaLiLeO).ipynb)
 
 At the root:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/C2DH/template_repo_JDH_R.git/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/crystaljhall/GaLiLeO_JDH/HEAD?filepath=The-Text-Analysis-Prototype-for-Galileo's-Library-and-Letters-Online-(GaLiLeO).ipynb)
 
-This is the abstract dummy text. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+This article reports on a prototype digital laboratory for text analysis and discovery of interpretative pathways through historical materials related to Galileo Galilei (1563-1642). GaLiLeO: Galileo's Library and Letters Online prioritizes relationships not typically captured in database design for archival material. Drawing on best practices for humanistic modeling ((Rockwell and Sinclair 2016),(McCarty 2014)), these tools for exploration, question making, and question answering are inspired by a common epistemological practice in Galileo's lifetime: the juxtaposition of objects (often in a wunderkammer or cabinet of curiosities). New knowledge arises from seeing a document in comparison to others, not solely from the inherited value attached to an author, date, or organizational logic. Embedded functions allow a user to contextualize a document within a broader corpus of personal and semi-public letters, prefatory letters, and book-length texts from Galileo's library. By providing these contextual details, the digital space becomes experiential and representational, experimental and demonstrative. Accordingly, the preliminary text analysis tools in GaLiLeO represent a prototype to deprioritize post-hoc organizational structures in order to emphasize relationships across documents that may have resisted or otherwise been excluded from such structures.
 
 # Keywords
-example, dummy text, lorem ipsum
+text analysis, history of science, digital archives, corpus creation, Galileo Galilei
