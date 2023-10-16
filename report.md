@@ -15,21 +15,11 @@ code: 27
 
 
 ### Check Output Sizes and Rules
-  - No valid tags found for image output in cell 4
-- Output cell 4 size: 1751.10 KB
+  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=4)- Output cell 4 size: 1751.10 KB
 > First words of input cell: library("IRdisplay") display_png(file="./media/CoverImage.png")
-  - No valid tags found for image output in cell 28
-  - No valid tags found for image output in cell 32
-  - No valid tags found for image output in cell 45
-  - No valid tags found for image output in cell 53
-  - No valid tags found for image output in cell 67
-  - No valid tags found for image output in cell 70
-  - No valid tags found for image output in cell 77
-  - No valid tags found for image output in cell 86
-- Table found in output of cell 89
+  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=28)  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=32)  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=45)  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=53)  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=67)  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=70)  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=77)  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=86)- Table found in output of cell 89
 > First words of input cell: get_KWIC(type_attributes, "ochiale")
-  - No valid tags found for image output in cell 93
-
+  - No valid tags found for image output  [Check here ](https://journalofdigitalhistory.org/en/notebook-viewer/JTJGcHJveHktZ2l0aHVidXNlcmNvbnRlbnQlMkZqZGgtb2JzZXJ2ZXIlMkZGWWpEVmlYVlhnZ3olMkZtYXN0ZXIlMkZhcnRpY2xlLmlweW5i?idx=93)
 Total output size: 3280.00 KB
 Total number of images: 10
 Total number of tables: 1
