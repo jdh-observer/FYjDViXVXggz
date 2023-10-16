@@ -379,7 +379,9 @@ see_KWIC <- function(type_list, type, stop_words){
 
 TopWordsNotInText <- function(text_list, ID){
   not_top_one_string <- paste(text_list[[ID]]$VocabDistinctions$NotTheseTopOne, sep = ", ")
-  return(not_top_one_string)
+  # Create a dataframe with a single column
+  df <- data.frame(NotTopOneWords = not_top_one_words)
+  return(df)
 }
 
 find_types_by_range <- function(corpus_list, GG = c("yes", "no", "high", "low"), NotGG= c("yes", "no", "high", "low"), size){
