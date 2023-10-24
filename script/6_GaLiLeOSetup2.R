@@ -322,7 +322,7 @@ word_info <- function(type_list, type){
   df <- type_list[[type]]$DocLevel
   type_plot <- ggplot(df, aes(x = as.numeric(Year), fill = factor(GG)))+
     geom_bar(stat = "count") +
-    theme(axis.title.x=element_text("Year"))+
+    xlab("Year")+
     labs(title = paste("Chronological Use of ", type, ".", sep = ""), x = "Year")+
     scale_fill_discrete(name ="Author", breaks = c("GG", "NotGG"), labels = c("Galileo", "Other Authors"))
   type_plot
