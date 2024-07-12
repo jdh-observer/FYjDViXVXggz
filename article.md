@@ -477,7 +477,7 @@ stop_words <- c(stop_words, expanded_stop_words)
 For the case of Sarrocchi's alternate spelling of *ochiale* (and the restricted sample of texts used for this article), the graph helps to reveal that authors who use this variant are not consistent in their use of content-bearing contextual terms (at least with a context of 20 words). They use the formal term of address (*ella*) and the phrase or terms *assai bene* (rather well). In contrast, letter writers who use Galileo's preferred *occhiale* (not pictured) over time seem to consistently have done or made something (*fatto*), rationalize when they speak about it (*perchè* - because), and discuss a gain or excess (*molto* and *più*). 
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R jdh={"object": {"source": ["Chronological use of terms with ochiale", "No copyright restrictions."]}} tags=["figure-chronology-ochiale-*", "hermeneutics"]
 see_KWIC(type_attributes, "ochiale", stop_words)
 ```
 
