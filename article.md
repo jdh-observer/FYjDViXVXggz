@@ -373,7 +373,7 @@ The function “choose_doc” also allows a user to see unique vocabulary and su
 
 Importantly, the function identifies what writers were *not* talking about alongside what they were. From what conversations were they excluded? What topics did they avoid even though they could have addressed them? The function "TopWordsNotInText" (so-named for transparency to novice coders) allows the user to probe the output from "choose_doc" more deeply.
 
-```R tags=["hermeneutics"]
+```R jdh={"object": {"source": ["What writers were not talking about", "No copyright restrictions"]}} tags=["hermeneutics", "table-1"]
 ID <- "EdNaz574"#Please put the Document ID in quotation marks to the left of this comment.
 TopWordsNotInText(text_attributes, ID)
 ```
@@ -432,7 +432,7 @@ To demonstrate and evaluate the methodological priorities that guided the develo
 
 Instead, the function word_info retrieves chronological, authorial, and textual context. The chronological information, if it were based on more accurate OCR output, would prompt consideration of how long it took for one of Galileo's Italian terms for the telescope, occhiale, to become standardized. The preliminary numeric results in the top lines of the output suggest about 20 years. The accompanying bar chart (output last) presents more granular information. This year-by-year information points to a more rapid standardization, within three years. Calling the function for different variants used to describe the telescope would better test the theory.
 
-```R tags=["figure(-insert-name)-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Chronological use of ochiale", "No copyright restrictions"]}} tags=["figure-wordinfo-occhiale-*", "hermeneutics"]
 word_info(type_attributes, "ochiale")
 ```
 
@@ -448,7 +448,7 @@ The related function “get_KWIC” is modified from Matthew Jockers’ code in 
 
 With a term like the related *telescopio*, which has several hundred results, even the list needs to be parsed to make sense of the kinds of use of the word. Computation can help. For example, in the output of the code cell below, 13 documents use ochiale a total of 16 times. The functions described above permit further exploration of the community of users with similar lexical habits. At the same time, the output indicates where *ochiale* occurs in each text. While it is visualized in a redundant fashion, in the second line of the output below, the artist Ludovico Cardi da Cigoli's letter to Galileo in March of 1610 used this variant spelling twice in a relatively short letter (322 words total): once as the 139th word and again as the 242nd word. This contextualizes the term in such a way as to see authors who make consistent use of a term and those who open a letter with it (the first line of the results, for instance), but never mention it again.
 
-```R tags=["hermeneutics"]
+```R jdh={"object": {"source": ["Documents using ochiale", "No copyright restrictions"]}} tags=["hermeneutics", "table-2"]
 get_KWIC(type_attributes, "ochiale")
 ```
 
