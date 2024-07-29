@@ -378,12 +378,21 @@ Importantly, the function identifies what writers were *not* talking about along
 ID <- "EdNaz574"
 # Call the TopWordsNotInText function and store the result in a dataframe
 result <- TopWordsNotInText(text_attributes, ID)
+
+# Ensure the result is a dataframe
 result_df <- as.data.frame(result)
+
 # Add an index column
 result_df$Index <- seq.int(nrow(result_df))
+
 # Reorder columns to have the index first
 result_df <- result_df[, c("Index", names(result_df)[names(result_df) != "Index"])]
-result_df
+
+# Set the maximum number of rows to display to a large number
+options(repr.matrix.max.rows = nrow(result_df))
+
+# Display the dataframe
+display(result_df)
 ```
 
 <!-- #region tags=["narrative"] vscode={"languageId": "plaintext"} -->
