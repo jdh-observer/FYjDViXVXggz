@@ -375,7 +375,9 @@ Importantly, the function identifies what writers were *not* talking about along
 
 ```R jdh={"object": {"source": ["What writers were not talking about", "No copyright restrictions"]}} tags=["hermeneutics", "table-1", "data-table"] vscode={"languageId": "r"}
 ID <- "EdNaz574"#Please put the Document ID in quotation marks to the left of this comment.
-TopWordsNotInText(text_attributes, ID)
+# Call the TopWordsNotInText function and store the result in a dataframe
+result_df <- data.frame(Words = TopWordsNotInText(text_attributes, ID))
+result_df
 ```
 
 <!-- #region tags=["narrative"] vscode={"languageId": "plaintext"} -->
