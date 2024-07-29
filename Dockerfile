@@ -9,15 +9,22 @@ ARG NB_UID
 USER root
 RUN apt-get update && apt-get -y install libgsl-dev
 COPY . ${HOME}
+
+## Run an install.R script, if it exists.
+RUN if [ -f install.R ]; then R --quiet -f install.R; fi
+
 ## Enable this to copy files from the binder subdirectory
 ## to the home, overriding any existing files.
 ## Useful to create a setup on binder that is different from a
 ## clone of your repository
 ## COPY binder ${HOME}
-RUN chown -R ${NB_USER} ${HOME}
+RUN chown -R ${NB_USER}:${NB_USER} ${HOME}
 
 ## Become normal user again
 USER ${NB_USER}
 
-## Run an install.R script, if it exists.
-RUN if [ -f install.R ]; then R --quiet -f install.R; fi
+## Set permissions for the notebook files
+RUN chmod -R u+w ${HOME}
+
+## Start the notebook server
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser"]
