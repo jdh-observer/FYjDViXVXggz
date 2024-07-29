@@ -1,10 +1,10 @@
 ## Use a tag instead of "latest" for reproducibility
 FROM rocker/binder:4
 
-## Declares build arguments
+## Declares build arguments with default values
 ARG NB_USER
-ARG NB_UID
-ARG NB_GID
+ARG NB_UID=1000
+ARG NB_GID=100
 
 ## Copies your repo files into the Docker Container
 USER root
