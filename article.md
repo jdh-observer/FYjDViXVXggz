@@ -373,11 +373,13 @@ The function “choose_doc” also allows a user to see unique vocabulary and su
 
 Importantly, the function identifies what writers were *not* talking about alongside what they were. From what conversations were they excluded? What topics did they avoid even though they could have addressed them? The function "TopWordsNotInText" (so-named for transparency to novice coders) allows the user to probe the output from "choose_doc" more deeply.
 
-```R jdh={"object": {"source": ["What writers were not talking about", "No copyright restrictions"]}} tags=["hermeneutics", "table-1", "data-table"] vscode={"languageId": "r"}
-ID <- "EdNaz574"#Please put the Document ID in quotation marks to the left of this comment.
+```R jdh={"object": {"source": ["What writers were not talking about", "No copyright restrictions"]}} tags=["hermeneutics", "table-1"] vscode={"languageId": "r"}
 # Call the TopWordsNotInText function and store the result in a dataframe
-result_df <- data.frame(Words = TopWordsNotInText(text_attributes, ID))
-result_df
+result <- TopWordsNotInText(text_attributes, ID)
+# Ensure the result is a dataframe
+result_df <- as.data.frame(result)
+# Print the dataframe
+print(result_df)
 ```
 
 <!-- #region tags=["narrative"] vscode={"languageId": "plaintext"} -->
