@@ -27,7 +27,7 @@ jupyter:
 
 <!-- #endregion -->
 
-```R jdh={"object": {"source": ["Image created by DALL\u00b7E 2023-03-22 10.55.28 - a photograph of parchment-bound books on shelves in an old library like the Laurentiana", "No known copyright restrictions"]}} tags=["cover"]
+```R jdh={"object": {"source": ["Image created by DALL\u00b7E 2023-03-22 10.55.28 - a photograph of parchment-bound books on shelves in an old library like the Laurentiana", "No known copyright restrictions"]}} tags=["cover"] vscode={"languageId": "r"}
 library("IRdisplay")
 display_png(file="./media/CoverImage.png")
 ```
@@ -80,7 +80,7 @@ Non-digital historical and literary methods often involve making a selection fro
 
 The gray box in Figure 1 offers an overview of a typical workflow for computational study of a textual corpus. While sharing a similar starting point with other humanistic inquiry, the data carpentry and digital humanistic processes begin with potential outputs in mind, which shape how the texts are organized and what data is created from them. Coding textbooks for humanists model this approach. (<cite data-cite="1584927/U3L2U4N5"></cite>; <cite data-cite="1584927/HD8S7YPS"></cite>; <cite data-cite="1584927/DRI292Q5"></cite>) A research question such as "How did early modern intellectual academies engage with the telescope in letters to Galileo?" could then prompt organization by the academy in which the author participated, creation of bag-of-words tables of word counts, and then stylometric modeling (among other ways to explore this idea). A parallel question that does not require digital methods for interpretation would be "What significance can be derived from an individual's departure from their academy's style of engagement with the telescope in letters to Galileo?" Again, specialist knowledge could determine the person and the academy due to previously-established notoriety, but that forecloses opportunities to engage with the lesser-studied or unstudied documents in the corpus. The scale is nonetheless overwhelming: With dozens of academies and hundreds of authors to choose from, where might a scholar begin?
 
-```R jdh={"object": {"source": ["GaLiLeO context diagram", "No copyright restrictions."]}} tags=["figure-galileocontext-*"]
+```R jdh={"object": {"source": ["GaLiLeO context diagram", "No copyright restrictions."]}} tags=["figure-galileocontext-*"] vscode={"languageId": "r"}
 display_png(file="./media/GaLiLeOContextDiagram.png")
 ```
 
@@ -114,7 +114,7 @@ For the purposes of the prototype development, and with the limitations of time 
 
 As presented at the workshop, the overall corpus could be subset into specialized document groupings based on type of document and metadata tag categories. (Figure 3)
 
-```R jdh={"object": {"source": ["Screen capture from the GaLiLeO Prototype created by the author.", "No copyright restrictions."]}} tags=["figure-galileoparameter-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Screen capture from the GaLiLeO Prototype created by the author.", "No copyright restrictions."]}} tags=["figure-galileoparameter-*", "hermeneutics"] vscode={"languageId": "r"}
 display_png(file="./media/GaLiLeOParameters.png")
 ```
 
@@ -126,7 +126,7 @@ Any text from the library that used one of 905 different terms tagged in the "In
 The first code cells in the prototype made visible the goals and limited implementation of the prototype while obscuring significant interpretive work. Users were asked to run some setup code behind the scenes before getting started. This loaded the necessary libraries and read the data into memory without needing to show lines of code that might have been overwhelming to many of the workshop participants who had never worked with Jupyter or seen code prior to joining us that day. (The code cells in this article retain some of the commenting that was provided for colleagues who had never programmed prior to the workshop.) 
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 #Requires ~20 seconds to load everything into memory
 source("script/5_GaLiLeOSetup1.R")
 
@@ -165,7 +165,7 @@ During the demonstration, users were able to interact with documents written by 
 Importantly, the subcorpus shows the prominence of Galileo's students and collaborators (Castelli, Cavalieri, and Sagredo), patron and partner (Cesi), and daughter (Maria Celeste). A planned feature will allow for continued subsetting by author of the material to facilitate the comparison of their linguistic choices to other writers. NB: anyone who explores the current notebook in more detail will immediately notice numeric discrepancies related to trimming the data to conform to file size limits in GitHub and mybinder. One can also see encoding issues related to accented vowels and special characters in the names of letter writers and recipients.
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 authors(corpus) # Long output
 ```
 
@@ -177,7 +177,7 @@ Because the goal of GaLiLeO was to assist in the selection of texts, the context
 One of the primary challenges was accounting for orthographical variance between the critically edited texts and the diplomatically edited ones. These are unrelated to the significant orthographical changes made in the 19th century edition, and are instead an artifact of printing practices in the 17th century. Early modern printing practice interchanged u and v, such that, for example, vno and uno were read as equivalents by contemporary readers. Since the digital characters v and u are encoded uniquely, substitutions were made in all texts to standardize how words appeared, meaning a departure from their print original, but the ability to search for terms without concern for orthographic variation. Using regular expressions would have changed too many vs that really were vs, so this catalog of substitutions was developed iteratively. It identifies and corrects most v/u substitutions, but likely still needs refinement. On the other hand, a universal substitution was made for j (called the long i) to i. This would need to be addressed with more nuance in a subsequent version of the tool kit, but allowed for significant experimentation even with the alpha prototype for texts in Italian (as opposed to Latin where it is more frequent). 
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 v_incorrect <- c("vb", "vc", "vd", "vf", "vg", "vh", "vj", "vk", "vl", "vm", "vn", "vp", "vq", "vs", "vt", 
                  "vw", "vx", "vy", "vz", "bv", "cv", "fv", "gv", "hv", "jv", "kv", "mv",
                  "pv", "qv", "tv", "wv", "xv", "yv", "zv", " sve ", " sva ", " svo ", "trvi", "nvo ",
@@ -196,7 +196,7 @@ u_correct <- c("ub", "uc", "ud", "uf", "ug", "uh", "uj", "uk", "ul", "um", "un",
 The code is not elegant, but captures quantitative information about each document, the words in the document, and the author. As shown in the figure below, the underlying metadata is also contextualized within the corpus. The results are stored as RDS objects to be loaded into memory when the user chooses a subcorpus for exploration.
 <!-- #endregion -->
 
-```R jdh={"object": {"source": ["Screen capture of the code written by the author to create the data for GaLiLeO.", "No copyright restrictions."]}} tags=["figure-galileotextattributes-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Screen capture of the code written by the author to create the data for GaLiLeO.", "No copyright restrictions."]}} tags=["figure-galileotextattributes-*", "hermeneutics"] vscode={"languageId": "r"}
 display_png(file="./media/GaLiLeOTextAttributes.png")
 ```
 
@@ -220,7 +220,7 @@ While our underlying data does capture information about people and places (with
 For example, in the "Instruments and Materials" documents without full text, the dates of coverage were 1506-1642 (the year of Galileo's death). With mean and median years in the mid-1620s, there is potentially an emphasis on discussions of experimentation supported by tools and instruments in the correspondence written in later decades of Galileo's life. Yet, in terms of chronological representation of the overall corpus, it is also heavily skewed toward the later years of Galileo's life, when his fame was such that correspondence increased and the need for preserving a record of communication with famous individuals became apparent.
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 date_range(all_years)
 ```
 
@@ -228,7 +228,7 @@ date_range(all_years)
 The following code cell shows a simplistic example of how this was instantiated in terms of creating both the model of the data, but also a model for contextualizing any document. The context, ideally, was provocation for further inquiry based on the results (the circumstances influencing the events). Users are immediately greeted with information about the years of coverage in their subcorpus, shown in the code snippet and then rendered specifically for one document of interest that will serve as the example for the rest of this article.
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 #Get year information
 years <- as.numeric()
 for (d in 1:length(text_attributes)){
@@ -269,7 +269,7 @@ colnames(years_df) <- c("Year", "Count", "Color")
 #}
 ```
 
-```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-ednazcomparaison-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-ednazcomparaison-*", "hermeneutics"] vscode={"languageId": "r"}
 display_png(file="./media/EdNaz574YearComparison.png")
 ```
 
@@ -327,7 +327,7 @@ Ideally, users would be presented with a menu of attributes related to similarit
 
 A function later in the prototype notebook, "read_doc", prints the contents of the letter to the screen, but it is provided here for Italian readers to see the letter in question. The output also provides a sense of the quality of the OCR from the national edition. The letter is labeled EdNaz574 in the code cells for its location in the national edition.
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 read_doc(text_attributes, "EdNaz574")
 ```
 
@@ -335,7 +335,7 @@ read_doc(text_attributes, "EdNaz574")
 Currently, the function “choose_doc” is the primary contextualizer in the suite of tools and much more restricted than the pattern-based ideal described above. The function retrieves critical numeric and lexical information, presents those results as text, and saves images of graphs when appropriate. The output from choose_doc is admittedly long, so it will be evaluated in phases. The visualizations that accompany the quantitative output are loaded here as images. Student users can refer to the output to prompt exploration of other documents and authors that are similar. Specialists will likely be drawn to the lexical and chronological features to start an investigatory path. All users will be presented with what could be called the document's perspective on the corpus: how it relates to other documents without imposition of siloes of periodization, nationality, genre, or form.
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 choose_doc(text_attributes, corpus, "EdNaz574")
 ```
 
@@ -347,7 +347,7 @@ There are 8 documents written by Sarrocchi in the corpus overall, but only 4 app
 An embedded function within choose_doc contextualizes the length of a document in comparison to the lengths of other documents in the subcorpus. Sarrocchi was writing longer letters than the average correspondent in this subcorpus. In addition to the prose readout from the code cell, prototype users saved a graph that plots lengths for the entire subcorpus. 
 <!-- #endregion -->
 
-```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-ednazlengthcomparison-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-ednazlengthcomparison-*", "hermeneutics"] vscode={"languageId": "r"}
 display_png(file="./media/EdNaz574LengthComparison.png")
 ```
 
@@ -359,7 +359,7 @@ While perhaps initially disorienting, the plot in Figure 6 shows, for example, t
 Beyond quantity of terms, the code also reveals proportionality of lexical choices. One of the visual outputs is a comparative type-token ratio scatterplot (Figure 7, below). This can be a way to understand repetition and complexity in documents by comparing unique word forms to the total number of words in a text. The figure compares the lexical complexity of a specific document (in blue), with or without punctuation, to works by Galileo and works by other authors. Importantly, the points with a TTR value of 1.0, meaning that no words are repeated in the document, are short excerpts from letters that were transcribed into the National Edition. They are sometimes so short as to be phrases or incomplete sentences. Sarrocchi's letter is not as lexically complex as most of the documents in the subcorpus. Here Sarrocchi's use of terms is seen in comparison to Galileo directly and against the backdrop of other authors in the subcorpus. The juxtaposition reveals more repetition in her letter than in those written by others. 
 <!-- #endregion -->
 
-```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-ednaz574TTRComparison-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-ednaz574TTRComparison-*", "hermeneutics"] vscode={"languageId": "r"}
 display_png(file="./media/EdNaz574TTRComparison.png")
 ```
 
@@ -373,20 +373,20 @@ The function “choose_doc” also allows a user to see unique vocabulary and su
 
 Importantly, the function identifies what writers were *not* talking about alongside what they were. From what conversations were they excluded? What topics did they avoid even though they could have addressed them? The function "TopWordsNotInText" (so-named for transparency to novice coders) allows the user to probe the output from "choose_doc" more deeply.
 
-```R jdh={"object": {"source": ["What writers were not talking about", "No copyright restrictions"]}} tags=["hermeneutics", "table-1"]
+```R jdh={"object": {"source": ["What writers were not talking about", "No copyright restrictions"]}} tags=["hermeneutics", "table-1", "data-table"] vscode={"languageId": "r"}
 ID <- "EdNaz574"#Please put the Document ID in quotation marks to the left of this comment.
 TopWordsNotInText(text_attributes, ID)
 ```
 
-<!-- #region tags=["narrative"] -->
-There are certainly more user-friendly ways to present this information, but specialists might be surprised to see the following: "galileo" (line 2); "mani" (hands) and "galilei" (line 3); "bacio" (kiss, line 4); "libro" (book, line 5); "terra" (earth, line 6); "opera" (work, line 8); "cielo" (sky, line 9); and "libri" (books, line 12). Some of these omissions are simply the result of bad OCR (or OCR that is bad in ways different from errors found in other documents, also telling in and of itself). (<cite data-cite="1584927/7RXKTZ2Y"></cite>) Yet, they signal that Sarrocchi is expressing honor and flattery in different terms than her contemporaries. She is also spelling Galileo's name with 3 l's. She is not talking about one of his books (or her own), nor is she connecting the discoveries in the skies to the realities on the ground. Her letter also seems devoid of the most frequent modifiers used by other writers in the corpus. Curiosities piqued here can be addressed via further exploration using the word_info function described in Section 1.6. Because humanistic analysis, until recently, has prioritized the evidence that is most apparent, it is challenging to understand what is not there, but could have been. (<cite data-cite="1584927/T3EV72WF"></cite>, 22) This function seeks to visualize these lacunae.
+<!-- #region tags=["narrative"] vscode={"languageId": "plaintext"} -->
+There are certainly more user-friendly ways to present this information, but specialists might be surprised to see the following: “galileo” (27); “mani” (hands; 36) and “galilei” (39); “bacio” (kiss, 70); “libro” (book; 86); “terra” (earth; 96); “opera” (work; 127); “cielo” (sky; 147); and “libri” (books; 184). Some of these omissions are simply the result of bad OCR (or OCR that is bad in ways different from errors found in other documents, also telling in and of itself). (<cite data-cite="1584927/7RXKTZ2Y"></cite>) Yet, they signal that Sarrocchi is expressing honor and flattery in different terms than her contemporaries. She is also spelling Galileo's name with 3 l's. She is not talking about one of his books (or her own), nor is she connecting the discoveries in the skies to the realities on the ground. Her letter also seems devoid of the most frequent modifiers used by other writers in the corpus. Curiosities piqued here can be addressed via further exploration using the word_info function described in Section 1.6. Because humanistic analysis, until recently, has prioritized the evidence that is most apparent, it is challenging to understand what is not there, but could have been. (<cite data-cite="1584927/T3EV72WF"></cite>, 22) This function seeks to visualize these lacunae.
 <!-- #endregion -->
 
 <!-- #region tags=["narrative", "hermeneutics"] -->
 The penultimate output from the choose_doc function reports on similarity of rates of use of the 100 most frequent words in the corpus. Users are offered analyses using both Euclidean and Cosine methods (since the lengths of the documents can vary considerably). This is similar to Voyant Tools, the ePistolarium, and other tools that highlight the quantitative distance between documents. The graph shows the 10 most similar documents and the 10 least similar documents. (Figure 8) Aside from OCR errors that could easily skew this result right now, prototype users speculated that this might show the effects of different epistolary best practices in the period. Since this is based on lower quality OCR than would be desirable for a corpus-wide study, the results are best used to point to letters that might be found to be similar after close reading.
 <!-- #endregion -->
 
-```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-edNaz574CosineComparison-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Output from a tool in GaLiLeO created by the author.", "No copyright restrictions."]}} tags=["figure-edNaz574CosineComparison-*", "hermeneutics"] vscode={"languageId": "r"}
 display_png(file="./media/EdNaz574CosineComparison.png")
 ```
 
@@ -394,7 +394,7 @@ display_png(file="./media/EdNaz574CosineComparison.png")
 Such results should prompt exploration of both the similarities and the differences. For example: Why is Sarrocchi's letter so similar to EdNaz3104, Niccolò Fabbri di Peiresc's 1635 letter to Galileo? His letter is nearly twice the length of hers. While not ground-breaking, the function read_doc (seen earlier) allows for immediate exploration of the potential stylistic or other similarities between these documents.
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 read_doc(text_attributes, "EdNaz3104") # Replace XXXX with an ID, please keep the ""
 ```
 
@@ -432,7 +432,7 @@ To demonstrate and evaluate the methodological priorities that guided the develo
 
 Instead, the function word_info retrieves chronological, authorial, and textual context. The chronological information, if it were based on more accurate OCR output, would prompt consideration of how long it took for one of Galileo's Italian terms for the telescope, occhiale, to become standardized. The preliminary numeric results in the top lines of the output suggest about 20 years. The accompanying bar chart (output last) presents more granular information. This year-by-year information points to a more rapid standardization, within three years. Calling the function for different variants used to describe the telescope would better test the theory.
 
-```R jdh={"object": {"source": ["Chronological use of ochiale", "No copyright restrictions"]}} tags=["figure-wordinfo-occhiale-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Chronological use of ochiale", "No copyright restrictions"]}} tags=["figure-wordinfo-occhiale-*", "hermeneutics"] vscode={"languageId": "r"}
 word_info(type_attributes, "ochiale")
 ```
 
@@ -448,7 +448,7 @@ The related function “get_KWIC” is modified from Matthew Jockers’ code in 
 
 With a term like the related *telescopio*, which has several hundred results, even the list needs to be parsed to make sense of the kinds of use of the word. Computation can help. For example, in the output of the code cell below, 13 documents use ochiale a total of 16 times. The functions described above permit further exploration of the community of users with similar lexical habits. At the same time, the output indicates where *ochiale* occurs in each text. While it is visualized in a redundant fashion, in the second line of the output below, the artist Ludovico Cardi da Cigoli's letter to Galileo in March of 1610 used this variant spelling twice in a relatively short letter (322 words total): once as the 139th word and again as the 242nd word. This contextualizes the term in such a way as to see authors who make consistent use of a term and those who open a letter with it (the first line of the results, for instance), but never mention it again.
 
-```R jdh={"object": {"source": ["Documents using ochiale", "No copyright restrictions"]}} tags=["hermeneutics", "table-2"]
+```R jdh={"object": {"source": ["Documents using ochiale", "No copyright restrictions"]}} tags=["hermeneutics", "table-2"] vscode={"languageId": "r"}
 get_KWIC(type_attributes, "ochiale")
 ```
 
@@ -458,11 +458,11 @@ While 16 results are small enough to compare manually, more common terms create 
 
 The underlying function in GaLiLeO for this contextual lexical comparison is see_KWIC, which visualizes terms that co-occur with the keyword over time. This function allows for significant customization for users who do not mind typing up lists of words to exclude. The initial stop word list is quite restricted: definite and indefinite articles, Galileo's name, prepositions, some pronouns, and a handful of terms that are artifacts of the OCR process and data creation. This is intentional. Depending on the type of query, certain co-occurrences might be of tremendous interest. A scholar might be interested in modifiers (even otherwise banal terms such as *assai*/rather, *molto* /many or very, or *poco*/few). A different user might want to exclude verbs, while someone else might want to analyze them. With that in mind, users can currently modify the stop words list (similarly to Voyant). A future option would define only the words to count as context, establishing a white list, which could also be modified.
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 sort(stop_words, decreasing =F)
 ```
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 expanded_stop_words <- c("mi", "m", "me", "mio", "mia", "mie", "miei", "ti", "t", "te", "tuo", "tua", "tuoi", "tue", 
                          "si", "s", "suo", "sua", "suoi", "sue", "nostro", "nostri", "nostre", "nostra", 
                          "vostra", "vostro", "v", "vostri", "vostre", "loro", "lui",
@@ -477,7 +477,7 @@ stop_words <- c(stop_words, expanded_stop_words)
 For the case of Sarrocchi's alternate spelling of *ochiale* (and the restricted sample of texts used for this article), the graph helps to reveal that authors who use this variant are not consistent in their use of content-bearing contextual terms (at least with a context of 20 words). They use the formal term of address (*ella*) and the phrase or terms *assai bene* (rather well). In contrast, letter writers who use Galileo's preferred *occhiale* (not pictured) over time seem to consistently have done or made something (*fatto*), rationalize when they speak about it (*perchè* - because), and discuss a gain or excess (*molto* and *più*). 
 <!-- #endregion -->
 
-```R jdh={"object": {"source": ["Chronological use of terms with ochiale", "No copyright restrictions."]}} tags=["figure-chronology-ochiale-*", "hermeneutics"]
+```R jdh={"object": {"source": ["Chronological use of terms with ochiale", "No copyright restrictions."]}} tags=["figure-chronology-ochiale-*", "hermeneutics"] vscode={"languageId": "r"}
 see_KWIC(type_attributes, "ochiale", stop_words)
 ```
 
@@ -495,15 +495,15 @@ Where the document and lexical tools can help to identify a potentially fruitful
 One function allows direct comparison of authors' vocabulary. The eventual goal is to better understand lexical variety, breadth, and overlap. The first step, which was intended to provoke conversation at the prototype workshop, simply reports on the size of the vocabulary in the texts in the subcorpus by a given author. To be more helpful, it should also output the number of documents and the length of those documents. In the example below, the function is called three times to compare Galileo's lexicon to that of his daughter (Suor Maria Celeste) and Margherita Sarrocchi.
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 compare_author_vocabulary("Galilei, Galileo", corpus, text_attributes, corpus_attributes)
 ```
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 compare_author_vocabulary("Galilei, Maria Celeste", corpus, text_attributes, corpus_attributes)
 ```
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 compare_author_vocabulary("Sarrocchi, Margherita", corpus, text_attributes, corpus_attributes) 
 #Replace the Xxxx with Last name, First name, please leave the ""
 ```
@@ -516,7 +516,7 @@ In this subcorpus Galileo has 5 times as many letters as his daughter; Maria Cel
 The final tool perhaps holds the most promise as a template for query building. The function “find_types_by_range” responds to questions of the type: What are the words that Galileo uses in high frequency that the other authors in the corpus do not use at all? Again, this is a proof of concept, which needs more customization. For now, high is considered to be the 75th percentile or higher in frequency of usage; low is the 25th percentile. Users can also input a simple yes or no to indicate words that Galileo or other authors use (yes) or not (no). 
 <!-- #endregion -->
 
-```R tags=["hermeneutics"]
+```R tags=["hermeneutics"] vscode={"languageId": "r"}
 #Takes a few seconds to run
 find_types_by_range(corpus_attributes, GG="high", NotGG = "no", size =25)
 ```
@@ -581,7 +581,7 @@ It is important to note that the successful demonstration of the GaLiLeO prototy
 
 <div class="cite2c-biblio"></div>
 
-```R
+```R vscode={"languageId": "r"}
 # Check R version
 R.version
 ```
