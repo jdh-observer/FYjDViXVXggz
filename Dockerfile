@@ -1,34 +1,35 @@
-FROM rocker/geospatial:4.2.2
+# Use the rocker/binder image, which includes R and Jupyter Notebook
+FROM rocker/binder:4
 
-LABEL org.opencontainers.image.licenses="GPL-2.0-or-later" \
-      org.opencontainers.image.source="https://github.com/rocker-org/rocker-versioned2" \
-      org.opencontainers.image.vendor="Rocker Project" \
-      org.opencontainers.image.authors="Carl Boettiger <cboettig@ropensci.org>"
+# Set build arguments with default values
+ARG NB_USER
+ARG NB_UID=1000
+ARG NB_GID=100
 
-ENV NB_USER=rstudio
-ENV VIRTUAL_ENV=/opt/venv
-ENV PATH=${VIRTUAL_ENV}/bin:${PATH}
+# Install additional packages if needed
+USER root
+RUN apt-get update && apt-get -y install libgsl-dev
 
-RUN /rocker_scripts/install_jupyter.sh
+# Create the user directory if it doesn't exist and set permissions
+RUN mkdir -p /home/${NB_USER} && chown -R ${NB_UID}:${NB_GID} /home/${NB_USER}
 
-## Run an install.R script, if it exists.
-RUN if [ -f install.R ]; then R --quiet -f install.R; fi
+# Copy your repository files into the container
+COPY . /home/${NB_USER}
 
-## Install Python citation manager
-RUN python -m pip install --upgrade pip
-RUN pip install jupyterlab-citation-manager
+# Run an install.R script, if it exists
+RUN if [ -f /home/${NB_USER}/install.R ]; then R --quiet -f /home/${NB_USER}/install.R; fi
 
-# Copy the current directory contents into the container at /home/rstudio
-COPY . /home/rstudio
+# Change ownership of the home directory to the specified user and group
+RUN chown -R ${NB_UID}:${NB_GID} /home/${NB_USER}
 
-EXPOSE 8888
-
-#CMD ["/bin/sh", "-c", "jupyter lab --ip 0.0.0.0 --no-browser"]
-
+# Switch back to the notebook user
 USER ${NB_USER}
 
-# Set the working directory to the user's home directory
-WORKDIR /home/rstudio
+# Set permissions for the notebook files
+RUN chmod -R u+w /home/${NB_USER}
 
-# Start Jupyter Lab
-CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser"]
+# Ensure the .ipynb_checkpoints directory exists and has the correct permissions
+RUN mkdir -p /home/${NB_USER}/.ipynb_checkpoints && chmod -R u+w /home/${NB_USER}/.ipynb_checkpoints
+
+# Start the notebook server
+CMD ["jupyter", "notebook", "--ip=0.0.0.0", "--no-browser"]
