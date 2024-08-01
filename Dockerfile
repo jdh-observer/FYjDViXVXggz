@@ -18,10 +18,17 @@ RUN if [ -f install.R ]; then R --quiet -f install.R; fi
 RUN python -m pip install --upgrade pip
 RUN pip install jupyterlab-citation-manager
 
+# Copy the current directory contents into the container at /home/rstudio
+COPY . /home/rstudio
+
 EXPOSE 8888
 
 #CMD ["/bin/sh", "-c", "jupyter lab --ip 0.0.0.0 --no-browser"]
 
 USER ${NB_USER}
 
-WORKDIR /home/${NB_USER}
+# Set the working directory to the user's home directory
+WORKDIR /home/rstudio
+
+# Start Jupyter Lab
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--no-browser"]
