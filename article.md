@@ -374,24 +374,25 @@ The function “choose_doc” also allows a user to see unique vocabulary and su
 Importantly, the function identifies what writers were *not* talking about alongside what they were. From what conversations were they excluded? What topics did they avoid even though they could have addressed them? The function "TopWordsNotInText" (so-named for transparency to novice coders) allows the user to probe the output from "choose_doc" more deeply.
 
 ```R jdh={"object": {"source": ["What writers were not talking about", "No copyright restrictions"]}} tags=["hermeneutics", "table-1", "data-table"] vscode={"languageId": "r"}
-# Extract the words from the result column
-words <- result_df$result
+#Please put the Document ID in quotation marks to the left of this comment.
+ID <- "EdNaz574"
+# Call the TopWordsNotInText function and store the result in a dataframe
+result <- TopWordsNotInText(text_attributes, ID)
 
-# Pad the word list if it's not a multiple of 4
-remainder <- length(words) %% 4
-if (remainder != 0) {
-  words <- c(words, rep("", 4 - remainder))
-}
+# Ensure the result is a dataframe
+result_df <- as.data.frame(result)
 
-# Reshape into a matrix (4 columns, filled row-wise)
-words_matrix <- matrix(words, ncol = 4, byrow = TRUE)
+# Add an index column
+result_df$Index <- seq.int(nrow(result_df))
 
-# Convert to a data frame and label columns as "1.", "2.", "3.", "4."
-formatted_df <- as.data.frame(words_matrix, stringsAsFactors = FALSE)
-colnames(formatted_df) <- c("1.", "2.", "3.", "4.")
+# Reorder columns to have the index first
+result_df <- result_df[, c("Index", names(result_df)[names(result_df) != "Index"])]
 
-# Display the formatted table
-display(formatted_df)
+# Set the maximum number of rows to display to a large number
+options(repr.matrix.max.rows = nrow(result_df))
+
+# Display the dataframe
+display(result_df)
 ```
 
 <!-- #region tags=["narrative"] vscode={"languageId": "plaintext"} -->
