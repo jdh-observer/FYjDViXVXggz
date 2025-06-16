@@ -18,12 +18,13 @@ jupyter:
 <!-- #endregion -->
 
 <!-- #region tags=["contributor"] -->
- ### anonym
+ ### Crystal Hall [![0000-0003-1324-0364](https://orcid.org/sites/default/files/images/orcid_16x16.png)](https://orcid.org/0000-0003-1324-0364)
+Bowdoin College
 <!-- #endregion -->
 
 <!-- #region tags=["copyright"] -->
-[![cc-by](https://licensebuttons.net/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
-©<anonym>. Published by De Gruyter in cooperation with the University of Luxembourg Centre for Contemporary and Digital History. This is an Open Access article distributed under the terms of the [Creative Commons Attribution License CC-BY](https://creativecommons.org/licenses/by/4.0/){:target="_blank"}
+[![cc-by-nc-nd](https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+© Crystal Hall. Published by De Gruyter in cooperation with the University of Luxembourg Centre for Contemporary and Digital History. This is an Open Access article distributed under the terms of the [Creative Commons Attribution License CC BY-NC-ND](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 <!-- #endregion -->
 
