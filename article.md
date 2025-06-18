@@ -596,9 +596,13 @@ It is important to note that the successful demonstration of the GaLiLeO prototy
 ## Bibliography
 <!-- #endregion -->
 
+<!-- #region tags=["hidden"] -->
 <div class="cite2c-biblio"></div>
+<!-- #endregion -->
+
 
 ```R vscode={"languageId": "r"}
 # Check R version
 R.version
 ```
+
